@@ -38,6 +38,8 @@ RUN mkdir /tmp/zookeeper/
 COPY zkcfg /usr/local/bin
 COPY run.sh /opt/zookeeper/bin
 COPY prestage.sh /opt/zookeeper/bin
+COPY log4j.properties /opt/zookeeper/conf
+COPY zkServer.sh /opt/zookeeper/bin
 
 ENV PATH=/opt/zookeeper/bin:${PATH} \
     ZOO_LOG4J_PROP="INFO, CONSOLE"
