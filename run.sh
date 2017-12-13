@@ -26,8 +26,16 @@ zkcfg \
 if [ -n "${LAB+1}" ]; then
 	set -m
 	prestage.sh &
-	zkServer.sh start-foreground
+
+#	Using start-foreground does not generate console log
+#	zkServer.sh start-foreground
+	zkServer.sh start
 else
 	echo "Starting zookeeper."
-	zkServer.sh start-foreground
+#	zkServer.sh start-foreground
+	zkServer.sh start
 fi
+
+#Run below command to keep ZK container alive
+tail -f /dev/null
+
